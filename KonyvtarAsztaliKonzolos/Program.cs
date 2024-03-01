@@ -10,6 +10,8 @@ namespace KonyvtarAsztaliKonzolos
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("\nProgram vége.");
+            Console.ReadLine();
         }
     }
 }
