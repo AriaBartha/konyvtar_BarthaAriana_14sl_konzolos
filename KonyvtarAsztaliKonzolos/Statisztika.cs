@@ -66,8 +66,20 @@ namespace KonyvtarAsztaliKonzolos
             var bookCount = books.Where(b => b.Page_count > 500).Count();
             Console.WriteLine($"500 oldalnál hosszabb könyvek száma: {bookCount}");
         }
+        internal static void regiKonyv()
+        {
+            bool old = books.Any(b => b.Publish_year < 1950);
+            if (old == true)
+            {
+                Console.WriteLine("Van 1950-nél régebbi könyv.");
+            }
+            else
+            {
+                Console.WriteLine("Nincs 1950-nél régebbi könyv.");
+            }
+        }
 
-    }
 
-    
+
+    }    
 }
