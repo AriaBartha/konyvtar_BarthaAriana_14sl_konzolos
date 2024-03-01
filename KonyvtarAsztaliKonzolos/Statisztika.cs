@@ -65,7 +65,6 @@ namespace KonyvtarAsztaliKonzolos
 
         internal static void otszaznalHosszabb()
         {
-            //--todo: SELECT COUNT(`id`) FROM books WHERE page_count > 500;
             var bookCount = books.Where(b => b.Page_count > 500).Count();
             Console.WriteLine($"500 oldalnál hosszabb könyvek száma: {bookCount}");
         }
@@ -83,7 +82,6 @@ namespace KonyvtarAsztaliKonzolos
         }
         internal static void leghosszabb()
         {
-            //-- todo: SELECT author, title, publish_year, page_count FROM `books` ORDER BY page_count DESC LIMIT 1;
             var longest = books.OrderByDescending(b => b.Page_count).FirstOrDefault();
             Console.WriteLine($"A leghosszabb könyv: \n" +
                                 $"\tSzerző: {longest.Author} \n" +
