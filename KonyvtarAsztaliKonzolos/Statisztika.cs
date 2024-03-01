@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using KonyvtarAsztaliKonzolos;
 using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 
@@ -104,5 +105,19 @@ namespace KonyvtarAsztaliKonzolos
             Console.WriteLine($"A legtöbb könyvvel rendelkező szerző: {result.Author}");
         }
 
+        internal static void kiASzerzo()
+        {
+            Console.Write("Adjon meg egy könyv címet: ");
+            string cim = Console.ReadLine();
+            var egyezoKonyv = books.Where(book => book.Title == cim).ToList();
+            if (egyezoKonyv.Any())
+            {
+                Console.WriteLine($"A megdott könyv szerzője: {egyezoKonyv[0].Author}");
+            }
+            else
+            {
+                Console.WriteLine($"Nincs ilyen könyv");
+            }
+        }
     }    
 }

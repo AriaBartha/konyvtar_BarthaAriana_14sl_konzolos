@@ -19,7 +19,7 @@ namespace KonyvtarAsztaliKonzolos
             Statisztika.regiKonyv();
             Statisztika.leghosszabb();
             Statisztika.legtobbKonyvSzerzoje();
-            Console.WriteLine("\nProgram vége.");
+            Statisztika.kiASzerzo();
             Console.ReadLine();
         }
     }
