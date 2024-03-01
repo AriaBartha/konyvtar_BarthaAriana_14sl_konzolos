@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
@@ -78,7 +79,16 @@ namespace KonyvtarAsztaliKonzolos
                 Console.WriteLine("Nincs 1950-nél régebbi könyv.");
             }
         }
-
+        internal static void leghosszabb()
+        {
+            //-- todo: SELECT author, title, publish_year, page_count FROM `books` ORDER BY page_count DESC LIMIT 1;
+            var longest = books.OrderByDescending(b => b.Page_count).FirstOrDefault();
+            Console.WriteLine($"A leghosszabb könyv: \n" +
+                                $"\tSzerző: {longest.Author} \n" +
+                                $"\tCím: {longest.Title} \n" +
+                                $"\tKiadás éve: {longest.Publish_year} \n" +
+                                $"\tOldalszám: {longest.Page_count}");
+        }
 
 
     }    
