@@ -8,8 +8,13 @@ namespace KonyvtarAsztaliKonzolos
 {
     internal class Program
     {
+        
+        public static Statisztika adatok = null;
         static void Main(string[] args)
         {
+            adatok = new Statisztika();
+            Statisztika.beolvas();
+            Statisztika.konyvListazas();
             Console.WriteLine("\nProgram vége.");
             Console.ReadLine();
         }
