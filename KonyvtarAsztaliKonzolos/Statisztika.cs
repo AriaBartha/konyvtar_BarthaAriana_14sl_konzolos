@@ -7,6 +7,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 
 namespace KonyvtarAsztaliKonzolos
 {
@@ -89,7 +90,19 @@ namespace KonyvtarAsztaliKonzolos
                                 $"\tKiadás éve: {longest.Publish_year} \n" +
                                 $"\tOldalszám: {longest.Page_count}");
         }
+        internal static void legtobbKonyvSzerzoje()
+        {
+            //SELECT author, COUNT(*) AS book_count FROM books GROUP BY author ORDER BY book_count DESC; 
+            //a legtöbb könyvvel rendelkezők 3-an vannak, mindhármuknak 8 könyve van a listában:
+            //Kyla Kertzmann III, Briana Kihn és Asha Kreiger
 
+            var result = books.GroupBy(b => b.Author).Select(g => new
+                {
+                    Author = g.Key,
+                    BookCount = g.Count()
+                }).OrderByDescending(g => g.BookCount).FirstOrDefault();
+            Console.WriteLine($"A legtöbb könyvvel rendelkező szerző: {result.Author}");
+        }
 
     }    
 }

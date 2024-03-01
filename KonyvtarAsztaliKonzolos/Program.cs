@@ -18,6 +18,7 @@ namespace KonyvtarAsztaliKonzolos
             Statisztika.otszaznalHosszabb();
             Statisztika.regiKonyv();
             Statisztika.leghosszabb();
+            Statisztika.legtobbKonyvSzerzoje();
             Console.WriteLine("\nProgram vége.");
             Console.ReadLine();
         }
