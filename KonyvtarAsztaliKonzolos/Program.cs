@@ -14,7 +14,8 @@ namespace KonyvtarAsztaliKonzolos
         {
             adatok = new Statisztika();
             Statisztika.beolvas();
-            Statisztika.konyvListazas();
+            //Statisztika.konyvListazas();
+            Statisztika.otszaznalHosszabb();
             Console.WriteLine("\nProgram vége.");
             Console.ReadLine();
         }

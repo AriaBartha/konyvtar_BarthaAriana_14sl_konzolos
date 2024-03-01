@@ -11,12 +11,13 @@ namespace KonyvtarAsztaliKonzolos
 {
     internal class Statisztika
     {
+
         static List<Book> books = new List<Book>();
         static MySqlConnection conn = null;
         static MySqlCommand cmd = null;
 
 
-        public static void beolvas()
+        internal static void beolvas()
         {
             MySqlConnectionStringBuilder sb = new MySqlConnectionStringBuilder();
             sb.Clear();
@@ -58,6 +59,14 @@ namespace KonyvtarAsztaliKonzolos
                 Console.WriteLine(item);
             }
         }
+
+        internal static void otszaznalHosszabb()
+        {
+            //--todo: SELECT COUNT(`id`) FROM books WHERE page_count > 500;
+            var bookCount = books.Where(b => b.Page_count > 500).Count();
+            Console.WriteLine($"500 oldalnál hosszabb könyvek száma: {bookCount}");
+        }
+
     }
 
     
